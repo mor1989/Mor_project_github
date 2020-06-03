@@ -23,10 +23,10 @@ def get_filters():
         "dc": "washington"
     }
 
-    city = input("Hi there, which city you would like to get data from ? \n write CH for Chicago, NY for New York and DC for Washington: ")
+    city = input("Please choose a city you would like to explore the data from: \n write CH for Chicago, NY for New York and DC for Washington: ")
     while city.lower() not in city_dict.keys():
         print("\n Please enter valid input!")
-        city = input("Hi there, which city you would like to get data from? \n write CH for Chicago, NY for New York and DC for Washington: ")
+        city = input("Please choose a city you would like to explore the data from: \n write CH for Chicago, NY for New York and DC for Washington: ")
     else:
         city = city_dict[city.lower()]
 
