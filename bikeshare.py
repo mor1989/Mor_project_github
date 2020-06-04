@@ -103,9 +103,9 @@ def time_stats(df, month, day):
     popular_hour = df.hour.mode()[0]
     print("The most popular hour of the day is: {}".format(popular_hour))
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print_duration(start_time)
 
+    print('-'*40)
 
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
@@ -122,7 +122,7 @@ def station_stats(df):
     popular_comb = counts = df.groupby(['Start Station','End Station']).size().sort_values(ascending=False)
     print("The most common requent combination of start station and end station trip is: {}".format(counts.index[0]))
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print_duration(start_time)
     print('-'*40)
 
 
@@ -136,7 +136,7 @@ def trip_duration_stats(df):
 
     print("The average trip duration for the chosen period is: {} minutes.".format(df['Trip Duration'].mean()/60))
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print_duration(start_time)
     print('-'*40)
 
 
@@ -168,8 +168,11 @@ def user_stats(df):
     except KeyError:
         print("Sorry, no data for your chosen filter\n")
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print_duration(start_time)
     print('-'*40)
+
+def print_duration(start_time):
+    print("\nThis took %s seconds." % (time.time() - start_time))
 
 
 def main():
